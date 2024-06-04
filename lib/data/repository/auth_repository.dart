@@ -21,7 +21,9 @@ class AuthRepository {
     if (response == null) return StatusType.error;
 
     if (response.statusCode == 200) {
-      final String token = response.body!['access_token'];
+      // print(response);
+
+      final String token = response.body['body']['access_token'];
       prefs.prefs.setString('token', token);
       return StatusType.success;
     }
@@ -42,7 +44,7 @@ class AuthRepository {
 
     if (response.statusCode == 201) return StatusType.success;
 
-    if (response.statusCode == 400) return StatusType.success;
+    if (response.statusCode == 400) return StatusType.alreadyUser;
     return StatusType.notFound;
   }
 

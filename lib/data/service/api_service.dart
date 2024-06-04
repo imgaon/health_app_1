@@ -9,6 +9,7 @@ class ApiService {
   Future<ResponseModel?> get(Uri url, Map<String, String> headers) async {
     try {
       final response = await _client.get(url, headers: headers);
+      print(response.body);
       return ResponseModel(statusCode: response.statusCode, body: jsonDecode(response.body));
     } catch (e) {
       return null;

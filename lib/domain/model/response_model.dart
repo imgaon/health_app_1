@@ -1,6 +1,6 @@
 class ResponseModel {
   final int statusCode;
-  final Map<String, dynamic>? body;
+  final Map<String, dynamic> body;
 
   ResponseModel({required this.statusCode, required this.body});
 
@@ -8,4 +8,9 @@ class ResponseModel {
         statusCode: statusCode,
         body: body,
       );
+
+  @override
+  String toString() {
+    return 'ResponseModel{statusCode: $statusCode, body: $body}';
+  }
 }
